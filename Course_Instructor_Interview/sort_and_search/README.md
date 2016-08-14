@@ -1,0 +1,1 @@
+This directory contains source code for the merge_sort, selection_sort and binary_search applications along with a test file.
