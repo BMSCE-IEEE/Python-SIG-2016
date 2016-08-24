@@ -24,7 +24,7 @@ def read_data_from_file(word_based_password, include_caps, include_sym, include_
     # checks if data_file exists and is not empty (run stats_passwords.py first)
     if os.path.exists(data_file) and os.path.getsize(data_file) > 0:
         with open("passwords_data.txt") as data_file:
-            bool_list = []
+            bool_list = []  # stores Boolean conditions of a set of passwords (inputs to password generating function)
             for line in data_file:
                 if line.startswith("# word_based_password"):
                     bool_list = []  # stores conditions of a set of passwords (inputs to password generating function)
@@ -57,6 +57,8 @@ print("include_sym: ", include_sym)
 data_list = []
 data_list = read_data_from_file(word_based_password, include_caps, include_sym, include_num)
 # time, samples and other Boolean values in data_list[0]
+
+# matplotlib functions to plot the required graph
 data_list[0] = data_list[0] + "  word_based_password: " + str(word_based_password) + " include_caps: " + str(include_caps) + " include_num: " + str(include_num) + " include_sym: " + str(include_sym)
 x_vals = [line.split()[0] for line in data_list[1:-1]]   # neglecting time, samples and Booleans (data_list[0])
 y_vals = [line.split()[1] for line in data_list[1:-1]]   # data_list[-1] is ''
